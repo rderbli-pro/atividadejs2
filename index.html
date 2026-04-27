@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <title>Cadastro</title>
+    <script>
+        function pesquisarCep(){
+            const cep = document.getElementById("cep").value
+            const link = "https://viacep.com.br/ws/" + cep + "/json/?callback=preencherEndereco"
+            var script = document.createElement("script")
+            script.src = link
+            document.body.appendChild(script)
+        }
+        function preencherEndereco(conteudo){
+            alert(JSON.stringify(conteudo))
+        }
+    </script>
 </head>
 <body>
     <header> </header>
@@ -24,7 +36,7 @@
             <input type="tel" id="celular" placeholder="(42)99999-9999" required class="input-texto">
 
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" placeholder="00000-000" required class="input-texto">
+            <input type="text" id="cep" onblur="pesquisarCep()" placeholder="00000-000" required class="input-texto">
 
             <label for="rua">Rua:</label>
             <input type="text" id="rua" placeholder="Nome da rua" required class="input-texto">
