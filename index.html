@@ -7,6 +7,10 @@
     <!DOCTYPE html>
     <script>
         function pesquisarcep(){
+            document.getElementById("rua").value = ""
+            document.getElementById("bairro").value = ""
+            document.getElementById("uf").value = ""
+            document.getElementById("cidade").value = ""
             const cep = document.getElementById("cep").value 
             const link = "https://viacep.com.br/ws/" + cep + "/json/?callback=preencherEndereco"
             var script = document.createElement("script")
